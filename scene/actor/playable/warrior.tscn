@@ -1,0 +1,200 @@
+[gd_scene load_steps=32 format=3 uid="uid://d3jtvk4316bxt"]
+
+[ext_resource type="Texture2D" uid="uid://b3l1it22xn5s3" path="res://asset/graphic/character/Warrior_Idle.png" id="1_i83nx"]
+[ext_resource type="Script" uid="uid://cgxevj2vk4hxv" path="res://script/actor/warrior.gd" id="1_xsh2u"]
+[ext_resource type="Texture2D" uid="uid://d2bqeifpwsjj5" path="res://asset/graphic/character/Warrior_Attack1.png" id="2_iek4t"]
+[ext_resource type="Texture2D" uid="uid://b8iyvi0utmdg8" path="res://asset/graphic/character/Warrior_Attack2.png" id="3_4n1wu"]
+[ext_resource type="Texture2D" uid="uid://wcldqryftri5" path="res://asset/graphic/character/Warrior_Guard.png" id="4_4s2vs"]
+[ext_resource type="Script" uid="uid://btn7v3p0wwht4" path="res://script/manager/state_manager.gd" id="5_itwro"]
+[ext_resource type="Script" uid="uid://dak74vosl3ora" path="res://script/state/idle.gd" id="6_18eba"]
+[ext_resource type="Script" uid="uid://b2cbyrh4kc3xp" path="res://script/state/attack.gd" id="7_ck7u3"]
+[ext_resource type="Script" uid="uid://j03qn2p5gt04" path="res://script/manager/turn_manager.gd" id="8_m5l1g"]
+[ext_resource type="Script" uid="uid://cotjcopqdev8i" path="res://script/state/charge.gd" id="9_73yy4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo7qp"]
+atlas = ExtResource("2_iek4t")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxrdn"]
+atlas = ExtResource("2_iek4t")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yipb"]
+atlas = ExtResource("2_iek4t")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg0s7"]
+atlas = ExtResource("2_iek4t")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnhtr"]
+atlas = ExtResource("3_4n1wu")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0own"]
+atlas = ExtResource("3_4n1wu")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73yy4"]
+atlas = ExtResource("4_4s2vs")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uobie"]
+atlas = ExtResource("4_4s2vs")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nanyp"]
+atlas = ExtResource("4_4s2vs")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyu2h"]
+atlas = ExtResource("4_4s2vs")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdu2b"]
+atlas = ExtResource("4_4s2vs")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6hjj"]
+atlas = ExtResource("4_4s2vs")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsh2u"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iek4t"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n1wu"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uge3"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mysuh"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrjd4"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g134"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x13d"]
+atlas = ExtResource("1_i83nx")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oo7qp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo7qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxrdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yipb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg0s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnhtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0own")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73yy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uobie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nanyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyu2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdu2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6hjj")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsh2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iek4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n1wu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uge3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mysuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrjd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g134")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x13d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Warrior" type="Node2D"]
+script = ExtResource("1_xsh2u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oo7qp")
+animation = &"charge"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.6027295
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("5_itwro")
+metadata/_custom_type_script = "uid://btn7v3p0wwht4"
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("6_18eba")
+metadata/_custom_type_script = "uid://dak74vosl3ora"
+
+[node name="Attack" type="Node" parent="StateManager"]
+script = ExtResource("7_ck7u3")
+metadata/_custom_type_script = "uid://b2cbyrh4kc3xp"
+
+[node name="Charge" type="Node" parent="StateManager"]
+script = ExtResource("9_73yy4")
+metadata/_custom_type_script = "uid://cotjcopqdev8i"
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("8_m5l1g")
+metadata/_custom_type_script = "uid://j03qn2p5gt04"
