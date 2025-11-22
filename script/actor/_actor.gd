@@ -7,6 +7,8 @@ class_name Actor
 @export var max_health : int = 30
 @export var mana : int = 30
 @export var max_mana : int = 30
+@export var strength : int = 10
+@export var defense : int = 10
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_manager : StateManager = $StateManager
@@ -21,3 +23,10 @@ func _on_anim_finished() -> void:
 
 func _on_turn_ready() -> void:
 	state_manager.transition_to("Attack")
+
+func attacked(damage : int) -> void:
+	state_manager.transition_to("Hurt")
+	if (health - damage) <= 0:
+		health = 0
+	else:
+		health -= damage
