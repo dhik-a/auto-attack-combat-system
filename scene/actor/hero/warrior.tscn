@@ -1,10 +1,10 @@
 [gd_scene load_steps=32 format=3 uid="uid://d3jtvk4316bxt"]
 
-[ext_resource type="Texture2D" uid="uid://b3l1it22xn5s3" path="res://asset/graphic/character/Warrior_Idle.png" id="1_i83nx"]
-[ext_resource type="Script" uid="uid://cgxevj2vk4hxv" path="res://script/actor/warrior.gd" id="1_xsh2u"]
-[ext_resource type="Texture2D" uid="uid://d2bqeifpwsjj5" path="res://asset/graphic/character/Warrior_Attack1.png" id="2_iek4t"]
-[ext_resource type="Texture2D" uid="uid://b8iyvi0utmdg8" path="res://asset/graphic/character/Warrior_Attack2.png" id="3_4n1wu"]
-[ext_resource type="Texture2D" uid="uid://wcldqryftri5" path="res://asset/graphic/character/Warrior_Guard.png" id="4_4s2vs"]
+[ext_resource type="Texture2D" uid="uid://b3l1it22xn5s3" path="res://asset/graphic/hero/warrior/Warrior_Idle.png" id="1_i83nx"]
+[ext_resource type="Script" uid="uid://cgxevj2vk4hxv" path="res://script/actor/hero/warrior.gd" id="1_xsh2u"]
+[ext_resource type="Texture2D" uid="uid://d2bqeifpwsjj5" path="res://asset/graphic/hero/warrior/Warrior_Attack1.png" id="2_iek4t"]
+[ext_resource type="Texture2D" uid="uid://b8iyvi0utmdg8" path="res://asset/graphic/hero/warrior/Warrior_Attack2.png" id="3_4n1wu"]
+[ext_resource type="Texture2D" uid="uid://wcldqryftri5" path="res://asset/graphic/hero/warrior/Warrior_Guard.png" id="4_4s2vs"]
 [ext_resource type="Script" uid="uid://btn7v3p0wwht4" path="res://script/manager/state_manager.gd" id="5_itwro"]
 [ext_resource type="Script" uid="uid://dak74vosl3ora" path="res://script/state/idle.gd" id="6_18eba"]
 [ext_resource type="Script" uid="uid://b2cbyrh4kc3xp" path="res://script/state/attack.gd" id="7_ck7u3"]
@@ -173,11 +173,10 @@ animations = [{
 script = ExtResource("1_xsh2u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_oo7qp")
-animation = &"charge"
+animation = &"attack"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.6027295
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("5_itwro")

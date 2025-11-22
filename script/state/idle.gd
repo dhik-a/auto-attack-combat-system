@@ -6,5 +6,5 @@ func enter(msg := {}):
 	actor.turn_manager.turn_active(true)
 
 func handle_input(event: InputEvent) -> void:
-	if event.is_action_pressed("charge"):
+	if actor.type == Enum.ActorType.Hero and event.is_action_pressed("charge"):
 		state_manager.transition_to("Charge")

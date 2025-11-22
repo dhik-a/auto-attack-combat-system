@@ -1,0 +1,113 @@
+[gd_scene load_steps=18 format=3 uid="uid://cxawqdjcjxveu"]
+
+[ext_resource type="Script" uid="uid://capmyjeavgdog" path="res://script/actor/enemy/lancer.gd" id="1_h7bh7"]
+[ext_resource type="Texture2D" uid="uid://0m6d8i7ij2pa" path="res://asset/graphic/enemy/lancer/Lancer_Right_Attack.png" id="2_x0j3k"]
+[ext_resource type="Script" uid="uid://btn7v3p0wwht4" path="res://script/manager/state_manager.gd" id="3_kvecl"]
+[ext_resource type="Texture2D" uid="uid://dj3dor7stapbm" path="res://asset/graphic/enemy/lancer/Lancer_Right_Defence.png" id="3_x0j3k"]
+[ext_resource type="Script" uid="uid://dak74vosl3ora" path="res://script/state/idle.gd" id="4_4fdi0"]
+[ext_resource type="Script" uid="uid://b2cbyrh4kc3xp" path="res://script/state/attack.gd" id="5_x0j3k"]
+[ext_resource type="Script" uid="uid://j03qn2p5gt04" path="res://script/manager/turn_manager.gd" id="6_4fdi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg675"]
+atlas = ExtResource("2_x0j3k")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c1ng"]
+atlas = ExtResource("2_x0j3k")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0syf"]
+atlas = ExtResource("2_x0j3k")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mipqu"]
+atlas = ExtResource("3_x0j3k")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc8b5"]
+atlas = ExtResource("3_x0j3k")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b824m"]
+atlas = ExtResource("3_x0j3k")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avweu"]
+atlas = ExtResource("3_x0j3k")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f4ex"]
+atlas = ExtResource("3_x0j3k")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlb51"]
+atlas = ExtResource("3_x0j3k")
+region = Rect2(1600, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gg675"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg675")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c1ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0syf")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mipqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc8b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b824m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avweu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f4ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlb51")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="Lancer" type="Node2D"]
+script = ExtResource("1_h7bh7")
+type = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gg675")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("3_kvecl")
+metadata/_custom_type_script = "uid://btn7v3p0wwht4"
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("4_4fdi0")
+metadata/_custom_type_script = "uid://dak74vosl3ora"
+
+[node name="Attack" type="Node" parent="StateManager"]
+script = ExtResource("5_x0j3k")
+metadata/_custom_type_script = "uid://b2cbyrh4kc3xp"
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("6_4fdi0")
+speed = 10
+metadata/_custom_type_script = "uid://j03qn2p5gt04"

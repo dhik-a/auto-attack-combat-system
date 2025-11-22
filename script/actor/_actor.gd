@@ -1,6 +1,8 @@
 extends Node
 class_name Actor
 
+@export var type : Enum.ActorType = Enum.ActorType.Hero
+
 @export var health : int = 30
 @export var max_health : int = 30
 @export var mana : int = 30

@@ -1,8 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://5eb8ktttnt8e"]
+[gd_scene load_steps=4 format=3 uid="uid://5eb8ktttnt8e"]
 
-[ext_resource type="PackedScene" uid="uid://d3jtvk4316bxt" path="res://scene/actor/playable/warrior.tscn" id="1_wey7j"]
+[ext_resource type="PackedScene" uid="uid://d3jtvk4316bxt" path="res://scene/actor/hero/warrior.tscn" id="1_wey7j"]
+[ext_resource type="Script" uid="uid://u2sc5x1jovkw" path="res://script/manager/battle_manager.gd" id="2_6ryl6"]
+[ext_resource type="PackedScene" uid="uid://cxawqdjcjxveu" path="res://scene/actor/enemy/lancer.tscn" id="2_hbr0r"]
 
 [node name="Battle" type="Node2D"]
 
 [node name="Warrior" parent="." instance=ExtResource("1_wey7j")]
-position = Vector2(128, 192)
+position = Vector2(160, 192)
+
+[node name="Lancer" parent="." instance=ExtResource("2_hbr0r")]
+position = Vector2(480, 192)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TurnGaugeHero" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 283.0
+value = 100.0
+
+[node name="TurnGaugeEnemy" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 576.0
+offset_bottom = 283.0
+value = 100.0
+
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("hero", "hero_turn_gauge", "enemy", "enemy_turn_gauge")]
+script = ExtResource("2_6ryl6")
+hero = NodePath("../Warrior")
+hero_turn_gauge = NodePath("../Control/TurnGaugeHero")
+enemy = NodePath("../Lancer")
+enemy_turn_gauge = NodePath("../Control/TurnGaugeEnemy")
+metadata/_custom_type_script = "uid://u2sc5x1jovkw"
