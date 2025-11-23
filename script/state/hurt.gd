@@ -8,7 +8,7 @@ func enter(msg := {}):
 	actor.anim.self_modulate = Color(0.753, 0.0, 0.0, 1.0)
 	await get_tree().create_timer(0.3).timeout
 	actor.anim.play()
-	state_manager.transition_to("Idle")
+	state_manager.transition_to(state_manager.previous_state.name)
 	
 func exit():
 	actor.anim.self_modulate = Color(1,1,1,1)
