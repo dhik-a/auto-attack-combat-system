@@ -27,11 +27,23 @@ func _on_turn_ready() -> void:
 
 func attacked(power : int) -> void:
 	var damage = BattleCalculation.calculate_damage(power, defense, modifier_manager.modifiers)
+	show_damage(damage)
 	if (health - damage) <= 0:
 		health = 0
+		state_manager.transition_to("Dead")
 	else:
 		health -= damage
-	state_manager.transition_to("Hurt")
+		state_manager.transition_to("Hurt")
+		
+func show_damage(damage : int) -> void:
+	var damage_number = preload("res://scene/prefab/damage_number.tscn").instantiate()
+	damage_number.set_number(damage)
+	var x_direction = -20
+	if type == Enum.ActorType.Enemy:
+		x_direction = 10
+	damage_number.set_x_direction(x_direction)
+	damage_number.global_position = self.global_position
+	get_tree().current_scene.add_child(damage_number)
 
 func charging() -> void:
 	pass

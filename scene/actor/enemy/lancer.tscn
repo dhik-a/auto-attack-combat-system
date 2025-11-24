@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxawqdjcjxveu"]
+[gd_scene load_steps=21 format=3 uid="uid://cxawqdjcjxveu"]
 
 [ext_resource type="Script" uid="uid://capmyjeavgdog" path="res://script/actor/enemy/lancer.gd" id="1_h7bh7"]
 [ext_resource type="Texture2D" uid="uid://0m6d8i7ij2pa" path="res://asset/graphic/enemy/lancer/Lancer_Right_Attack.png" id="2_x0j3k"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b2cbyrh4kc3xp" path="res://script/state/attack.gd" id="5_x0j3k"]
 [ext_resource type="Script" uid="uid://j03qn2p5gt04" path="res://script/manager/turn_manager.gd" id="6_4fdi0"]
 [ext_resource type="Script" uid="uid://boiox6cfsthjy" path="res://script/state/hurt.gd" id="7_mipqu"]
+[ext_resource type="Script" uid="uid://bgb8psyisql6f" path="res://script/state/dead.gd" id="8_b824m"]
 [ext_resource type="Script" uid="uid://vjvf05r42han" path="res://script/manager/modifier_manager.gd" id="8_oc8b5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg675"]
@@ -112,6 +113,10 @@ metadata/_custom_type_script = "uid://b2cbyrh4kc3xp"
 [node name="Hurt" type="Node" parent="StateManager"]
 script = ExtResource("7_mipqu")
 metadata/_custom_type_script = "uid://boiox6cfsthjy"
+
+[node name="Dead" type="Node" parent="StateManager"]
+script = ExtResource("8_b824m")
+metadata/_custom_type_script = "uid://bgb8psyisql6f"
 
 [node name="ModifierManager" type="Node" parent="."]
 script = ExtResource("8_oc8b5")

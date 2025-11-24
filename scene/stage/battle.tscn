@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5eb8ktttnt8e"]
+[gd_scene load_steps=10 format=3 uid="uid://5eb8ktttnt8e"]
 
 [ext_resource type="PackedScene" uid="uid://d3jtvk4316bxt" path="res://scene/actor/hero/warrior.tscn" id="1_wey7j"]
 [ext_resource type="Script" uid="uid://u2sc5x1jovkw" path="res://script/manager/battle_manager.gd" id="2_6ryl6"]
@@ -6,22 +6,35 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p07yr"]
 bg_color = Color(0.6, 0.6, 0.6, 0.47058824)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbr0r"]
-bg_color = Color(1.0035262e-05, 0.62781286, 0.12763622, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbr0r"]
+bg_color = Color(0, 0.627451, 0.12941177, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrq1t"]
 bg_color = Color(0.6, 0.6, 0.6, 0.47058824)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrb27"]
+bg_color = Color(0, 0.627451, 0.12941177, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtpkp"]
+bg_color = Color(0.6, 0.6, 0.6, 0.7529412)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wc28"]
+bg_color = Color(0, 0.25490198, 1, 1)
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
@@ -29,6 +42,12 @@ corner_radius_bottom_left = 16
 
 [node name="Warrior" parent="." instance=ExtResource("1_wey7j")]
 position = Vector2(160, 192)
+type = 0
+health = 30
+max_health = 30
+mana = 30
+max_mana = 30
+attack = 10
 
 [node name="Lancer" parent="." instance=ExtResource("2_hbr0r")]
 position = Vector2(480, 192)
@@ -36,8 +55,8 @@ position = Vector2(480, 192)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="TurnGaugeHero" type="ProgressBar" parent="Control"]
 layout_mode = 0
@@ -74,16 +93,27 @@ offset_top = 32.0
 offset_right = 576.0
 offset_bottom = 59.0
 theme_override_styles/background = SubResource("StyleBoxFlat_xrq1t")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hbr0r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hrb27")
 value = 100.0
 fill_mode = 1
 show_percentage = false
 
-[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("hero", "hero_turn_gauge", "hero_health_bar", "enemy", "enemy_turn_gauge", "enemy_health_bar")]
+[node name="ManaBarHero" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 59.0
+offset_right = 256.0
+offset_bottom = 72.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gtpkp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8wc28")
+show_percentage = false
+
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("hero", "hero_turn_gauge", "hero_health_bar", "hero_mana_bar", "enemy", "enemy_turn_gauge", "enemy_health_bar")]
 script = ExtResource("2_6ryl6")
 hero = NodePath("../Warrior")
 hero_turn_gauge = NodePath("../Control/TurnGaugeHero")
 hero_health_bar = NodePath("../Control/HealthBarHero")
+hero_mana_bar = NodePath("../Control/ManaBarHero")
 enemy = NodePath("../Lancer")
 enemy_turn_gauge = NodePath("../Control/TurnGaugeEnemy")
 enemy_health_bar = NodePath("../Control/HealthBarEnemy")
