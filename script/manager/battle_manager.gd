@@ -4,7 +4,6 @@ class_name BattleManager
 @export var hero : Actor
 @export var hero_turn_gauge : ProgressBar
 @export var hero_health_bar : ProgressBar
-@export var hero_mana_bar : ProgressBar
 
 @export var enemy : Actor
 @export var enemy_turn_gauge : ProgressBar
@@ -22,8 +21,6 @@ func _update_hero_ui() -> void:
 	hero_turn_gauge.value = hero.turn_manager.turn_gauge
 	hero_health_bar.value = hero.health
 	hero_health_bar.max_value = hero.max_health
-	hero_mana_bar.value = hero.mana
-	hero_mana_bar.max_value = hero.max_mana
 	
 func _on_hero_attacked(damage : int) -> void:
 	hero.attacked(damage)

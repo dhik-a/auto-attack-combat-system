@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://7ij2rtu1y1ik"]
+
+[ext_resource type="Texture2D" uid="uid://bpq6euslqhhad" path="res://asset/graphic/effect/Heal_Effect.png" id="1_d5g7q"]
+[ext_resource type="Script" uid="uid://cjt3172cjg0am" path="res://script/prefab/skill_effect.gd" id="1_jb7iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvv32"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0ein"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6idm"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0r3n"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioqx8"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nsy0"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1av6"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jabt6"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioli2"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c847h"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(1728, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mo7j"]
+atlas = ExtResource("1_d5g7q")
+region = Rect2(1920, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ucj5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvv32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0ein")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6idm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0r3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioqx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nsy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1av6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jabt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioli2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c847h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mo7j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="SkillEffect" type="Node2D"]
+script = ExtResource("1_jb7iv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8ucj5")
+autoplay = "default"
+frame = 10
+frame_progress = 1.0

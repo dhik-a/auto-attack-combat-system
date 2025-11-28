@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d3jtvk4316bxt"]
+[gd_scene load_steps=33 format=3 uid="uid://d3jtvk4316bxt"]
 
 [ext_resource type="Texture2D" uid="uid://b3l1it22xn5s3" path="res://asset/graphic/hero/warrior/Warrior_Idle.png" id="1_i83nx"]
 [ext_resource type="Script" uid="uid://cgxevj2vk4hxv" path="res://script/actor/hero/warrior.gd" id="1_xsh2u"]
@@ -9,10 +9,8 @@
 [ext_resource type="Script" uid="uid://dak74vosl3ora" path="res://script/state/idle.gd" id="6_18eba"]
 [ext_resource type="Script" uid="uid://b2cbyrh4kc3xp" path="res://script/state/attack.gd" id="7_ck7u3"]
 [ext_resource type="Script" uid="uid://j03qn2p5gt04" path="res://script/manager/turn_manager.gd" id="8_m5l1g"]
-[ext_resource type="Script" uid="uid://cotjcopqdev8i" path="res://script/state/charge.gd" id="9_73yy4"]
 [ext_resource type="Script" uid="uid://boiox6cfsthjy" path="res://script/state/hurt.gd" id="10_uvl3l"]
 [ext_resource type="Script" uid="uid://bgb8psyisql6f" path="res://script/state/dead.gd" id="11_v0gm6"]
-[ext_resource type="Script" uid="uid://vjvf05r42han" path="res://script/manager/modifier_manager.gd" id="12_rmepy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oo7qp"]
 atlas = ExtResource("2_iek4t")
@@ -174,6 +172,8 @@ animations = [{
 
 [node name="Warrior" type="Node2D"]
 script = ExtResource("1_xsh2u")
+health = 120
+max_health = 120
 defense = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -192,12 +192,8 @@ metadata/_custom_type_script = "uid://dak74vosl3ora"
 
 [node name="Attack" type="Node" parent="StateManager"]
 script = ExtResource("7_ck7u3")
+hit_frame = 3
 metadata/_custom_type_script = "uid://b2cbyrh4kc3xp"
-
-[node name="Charge" type="Node" parent="StateManager"]
-script = ExtResource("9_73yy4")
-modifier_value = 30
-metadata/_custom_type_script = "uid://cotjcopqdev8i"
 
 [node name="Hurt" type="Node" parent="StateManager"]
 script = ExtResource("10_uvl3l")
@@ -209,9 +205,4 @@ metadata/_custom_type_script = "uid://bgb8psyisql6f"
 
 [node name="TurnManager" type="Node" parent="."]
 script = ExtResource("8_m5l1g")
-speed = 30
 metadata/_custom_type_script = "uid://j03qn2p5gt04"
-
-[node name="ModifierManager" type="Node" parent="."]
-script = ExtResource("12_rmepy")
-metadata/_custom_type_script = "uid://vjvf05r42han"

@@ -3,7 +3,7 @@ class_name TurnManager
 
 signal turn_ready
 
-@export var speed : int = 20
+var speed : int = 20
 
 var turn_gauge : float = 0
 var max_turn_gauge : float = 100
