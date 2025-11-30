@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxawqdjcjxveu"]
+[gd_scene load_steps=22 format=3 uid="uid://cxawqdjcjxveu"]
 
 [ext_resource type="Script" uid="uid://capmyjeavgdog" path="res://script/actor/enemy/lancer.gd" id="1_h7bh7"]
 [ext_resource type="Texture2D" uid="uid://0m6d8i7ij2pa" path="res://asset/graphic/enemy/lancer/Lancer_Right_Attack.png" id="2_x0j3k"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://j03qn2p5gt04" path="res://script/manager/turn_manager.gd" id="6_4fdi0"]
 [ext_resource type="Script" uid="uid://boiox6cfsthjy" path="res://script/state/hurt.gd" id="7_mipqu"]
 [ext_resource type="Script" uid="uid://bgb8psyisql6f" path="res://script/state/dead.gd" id="8_b824m"]
+[ext_resource type="AudioStream" uid="uid://bn0e80w6yy5p2" path="res://asset/audio/07_human_atk_sword_3.wav" id="10_b824m"]
+[ext_resource type="AudioStream" uid="uid://6waymtyjbgyb" path="res://asset/audio/26_sword_hit_2.wav" id="11_avweu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg675"]
 atlas = ExtResource("2_x0j3k")
@@ -125,3 +127,9 @@ metadata/_custom_type_script = "uid://bgb8psyisql6f"
 [node name="TurnManager" type="Node" parent="."]
 script = ExtResource("6_4fdi0")
 metadata/_custom_type_script = "uid://j03qn2p5gt04"
+
+[node name="SoundAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_b824m")
+
+[node name="SoundHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_avweu")

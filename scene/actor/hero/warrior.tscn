@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d3jtvk4316bxt"]
+[gd_scene load_steps=35 format=3 uid="uid://d3jtvk4316bxt"]
 
 [ext_resource type="Texture2D" uid="uid://b3l1it22xn5s3" path="res://asset/graphic/hero/warrior/Warrior_Idle.png" id="1_i83nx"]
 [ext_resource type="Script" uid="uid://cgxevj2vk4hxv" path="res://script/actor/hero/warrior.gd" id="1_xsh2u"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://j03qn2p5gt04" path="res://script/manager/turn_manager.gd" id="8_m5l1g"]
 [ext_resource type="Script" uid="uid://boiox6cfsthjy" path="res://script/state/hurt.gd" id="10_uvl3l"]
 [ext_resource type="Script" uid="uid://bgb8psyisql6f" path="res://script/state/dead.gd" id="11_v0gm6"]
+[ext_resource type="AudioStream" uid="uid://bn0e80w6yy5p2" path="res://asset/audio/07_human_atk_sword_3.wav" id="12_rmepy"]
+[ext_resource type="AudioStream" uid="uid://6waymtyjbgyb" path="res://asset/audio/26_sword_hit_2.wav" id="13_v0gm6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oo7qp"]
 atlas = ExtResource("2_iek4t")
@@ -206,3 +208,9 @@ metadata/_custom_type_script = "uid://bgb8psyisql6f"
 [node name="TurnManager" type="Node" parent="."]
 script = ExtResource("8_m5l1g")
 metadata/_custom_type_script = "uid://j03qn2p5gt04"
+
+[node name="SoundAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_rmepy")
+
+[node name="SoundHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_v0gm6")

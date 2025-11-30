@@ -14,6 +14,7 @@ func update(delta: float) -> void:
 	var anim = actor.anim
 	if anim.frame >= hit_frame and !has_attacked:
 		has_attacked = true
+		actor.sound_attack.play()
 		if actor.type == Enum.ActorType.Hero:
 			BattleSignal.emit_signal("enemy_attacked", actor.attack)
 		else:

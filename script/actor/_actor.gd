@@ -12,6 +12,8 @@ class_name Actor
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_manager : StateManager = $StateManager
 @onready var turn_manager : TurnManager = $TurnManager
+@onready var sound_attack : AudioStreamPlayer2D = $SoundAttack
+@onready var sound_hurt : AudioStreamPlayer2D = $SoundHurt
 
 func _ready() -> void:
 	anim.animation_finished.connect(_on_anim_finished)
